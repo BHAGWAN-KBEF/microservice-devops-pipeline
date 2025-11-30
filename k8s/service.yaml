@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: orders-microservice-service
+  namespace: orders-microservice
+  labels:
+    app: orders-microservice
+spec:
+  selector:
+    app: orders-microservice
+  ports:
+  - port: 80
+    targetPort: 3000
+    protocol: TCP
+  type: LoadBalancer
