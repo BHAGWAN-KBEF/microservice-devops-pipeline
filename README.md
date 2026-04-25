@@ -1,6 +1,6 @@
 # Microservice DevOps Pipeline
 
-**Production-ready Node.js microservice with complete DevOps pipeline featuring Docker containerization, GitHub Actions CI/CD, Terraform infrastructure, Kubernetes deployment, ArgoCD GitOps, and Prometheus monitoring.**
+**Production-ready Node.js microservice with complete DevOps pipeline featuring Docker containerization, GitHub Actions CI/CD, Kubernetes deployment, ArgoCD GitOps, and Prometheus monitoring.**
 
 ## 🎯 Project Overview
 
@@ -27,19 +27,13 @@ Developer → GitHub → CI/CD → ECR → ArgoCD → EKS → Monitoring
 - ✅ **Security scanning** with Trivy
 - ✅ **Docker image building** and ECR publishing
 
-### **Phase 3: Infrastructure as Code**
-- ✅ **Terraform configuration** for AWS resources
-- ✅ **EKS cluster** with managed node groups
-- ✅ **VPC networking** with public/private subnets
-- ✅ **ECR repository** for container images
-
-### **Phase 4: GitOps Deployment**
+### **Phase 3: GitOps Deployment**
 - ✅ **ArgoCD installation** and configuration
 - ✅ **Helm chart** for Kubernetes deployment
 - ✅ **Automated synchronization** from Git repository
 - ✅ **Self-healing applications** with drift detection
 
-### **Phase 5: Monitoring & Observability**
+### **Phase 4: Monitoring & Observability**
 - ✅ **Prometheus** metrics collection
 - ✅ **Grafana dashboards** for visualization
 - ✅ **Custom monitoring** for microservice metrics
@@ -52,7 +46,6 @@ Developer → GitHub → CI/CD → ECR → ArgoCD → EKS → Monitoring
 - Docker & Docker Compose
 - AWS CLI configured
 - kubectl installed
-- Terraform installed
 
 ### **1. Local Development**
 ```bash
@@ -71,19 +64,7 @@ npm start
 docker-compose up -d
 ```
 
-### **2. Deploy Infrastructure**
-```bash
-# Deploy AWS infrastructure
-cd terraform
-terraform init
-terraform plan
-terraform apply
-
-# Configure kubectl
-aws eks update-kubeconfig --region us-east-1 --name orders-microservice-cluster
-```
-
-### **3. Setup GitOps**
+### **2. Setup GitOps**
 ```bash
 # Install ArgoCD
 kubectl create namespace argocd
@@ -93,7 +74,7 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 kubectl apply -f argocd/application.yaml
 ```
 
-### **4. Setup Monitoring**
+### **3. Setup Monitoring**
 ```bash
 # Install monitoring stack
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
@@ -111,10 +92,6 @@ microservice-devops-pipeline/
 ├── srcutils/                     # Utilities (logging)
 ├── test/                         # Unit tests (94% coverage)
 ├── .github/workflows/            # GitHub Actions CI/CD
-├── terraform/                    # Infrastructure as Code
-│   ├── main.tf                   # AWS resources
-│   ├── variables.tf              # Input variables
-│   └── outputs.tf                # Output values
 ├── k8s/                          # Kubernetes manifests
 ├── helmorders-microservice/      # Helm chart
 │   ├── Chart.yaml
@@ -139,7 +116,6 @@ microservice-devops-pipeline/
 - **Containerization**: Docker with multi-stage builds
 - **Orchestration**: Kubernetes (AWS EKS)
 - **Package Management**: Helm charts
-- **Infrastructure**: Terraform (AWS VPC, EKS, ECR)
 - **CI/CD**: GitHub Actions
 - **GitOps**: ArgoCD
 - **Monitoring**: Prometheus + Grafana
@@ -163,7 +139,6 @@ AWS_SECRET_ACCESS_KEY # AWS secret key
 ### **Key Configuration Files**
 - `helmorders-microservice/values.yaml` - Helm chart values
 - `argocd/application.yaml` - ArgoCD application config
-- `terraform/variables.tf` - Infrastructure variables
 - `.github/workflows/ci.yml` - CI/CD pipeline
 
 ## 📊 Accessing Services
@@ -245,7 +220,6 @@ kubectl port-forward svc/argocd-server -n argocd 8080:443
 ### **Production-Ready Features**
 - ✅ **94% test coverage** with comprehensive unit tests
 - ✅ **Automated CI/CD** with quality gates
-- ✅ **Infrastructure as Code** with Terraform
 - ✅ **GitOps deployment** with ArgoCD
 - ✅ **Full observability** stack
 - ✅ **Security scanning** and hardening
@@ -265,7 +239,6 @@ This project showcases **intermediate-to-advanced** DevOps engineering skills:
 - **Microservices Architecture**
 - **Containerization & Orchestration**
 - **CI/CD Pipeline Design**
-- **Infrastructure as Code**
 - **GitOps Practices**
 - **Monitoring & Observability**
 - **Security Implementation**
