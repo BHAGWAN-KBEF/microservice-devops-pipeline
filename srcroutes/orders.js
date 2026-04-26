@@ -1,7 +1,7 @@
-const express = require('express');
-const Joi = require('joi');
-const { v4: uuidv4 } = require('uuid');
-const logger = require('../srcutils/logger');
+import express from 'express';
+import Joi from 'joi';
+import { v4 as uuidv4 } from 'uuid';
+import logger from '../srcutils/logger.js';
 
 const router = express.Router();
 
@@ -135,4 +135,4 @@ router.delete('/:id', (req, res) => {
   res.json({ message: 'Order deleted successfully', order: deletedOrder });
 });
 
-module.exports = router;
+export default router;

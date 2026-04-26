@@ -1,10 +1,10 @@
-const express = require('express');
-const helmet = require('helmet');
-const cors = require('cors');
-const compression = require('compression');
-const rateLimit = require('express-rate-limit');
-const logger = require('../srcutils/logger');
-const orderRoutes = require('../srcroutes/orders');
+import express from 'express';
+import helmet from 'helmet';
+import cors from 'cors';
+import compression from 'compression';
+import rateLimit from 'express-rate-limit';
+import logger from '../srcutils/logger.js';
+import orderRoutes from '../srcroutes/orders.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -77,4 +77,4 @@ const server = app.listen(PORT, () => {
   logger.info(`Orders microservice running on port ${PORT}`);
 });
 
-module.exports = { app, server };
+export { app, server };
